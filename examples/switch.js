@@ -10,6 +10,6 @@ switch(x){
         break;
     
     default:
-        alert(x + " is not any kind of number")
+        console.log(x + " is not any kind of number")
 
 }
