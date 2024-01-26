@@ -1,24 +1,24 @@
 const express = require('express')
 const app = express()
 
+const cats = [
+    {"breed": "tortoiseshell",
+    "age": 52,
+    "name": "picasso",
+    "colour": "brown"},
+    {"breed": "British Short Hair",
+    "age": 2,
+    "name" : "Napleon",
+    "colour": "white"}
+]
 app.use(express.static('client'));
 
 app.get('/', function(req, resp){
     resp.send('Hello golden cats')
   })
 
-app.get('/random/:max', function(req, resp){
-    max = parseInt(req.params.max)
-    rand = Math.floor(Math.random()*max) +1
-    console.log('Max via url is ' + max + ' rand is ' + rand)
-    resp.send('' + rand)
-  })
-
-  app.get('/r', function(req, resp){
-    max = parseInt(req.query.max)
-    rand = Math.floor(Math.random()*max) +1
-    console.log('Max via query is ' + max + ' rand is ' + rand)
-    resp.send('' + rand)
+app.get('/cats', function(req, resp){
+    resp.send(cats);
   })
 
 app.listen(8090)
