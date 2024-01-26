@@ -21,6 +21,18 @@ app.get('/cats', function(req, resp){
     resp.send(cats);
   })
 
+  
+app.get('/catsearch', function(req, resp){
+    let colour = req.query.colour;
+    let searchResults = [];
+    for(let cat of cats){   
+        if(cat.colour == colour){
+            searchResults.push(cat);
+        }
+    }
+    resp.send(searchResults);
+  })
+
 app.get('/cat/:name', function(req, resp){
     let catName = req.params.name;
     let found = false;
