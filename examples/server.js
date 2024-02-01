@@ -13,9 +13,6 @@ const cats = [
 ]
 app.use(express.static('client'));
 
-app.get('/', function(req, resp){
-    resp.send('Hello golden cats')
-  })
 
 app.get('/cats', function(req, resp){
     resp.send(cats);
