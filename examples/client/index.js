@@ -1,4 +1,3 @@
-alert("loaded index.js")
 
 const button = document.getElementById("all_cats_button")
 
@@ -12,3 +11,25 @@ button.addEventListener('click', async function(event){
       alert(error)
     }
 });
+
+const newCatForm = document.getElementById("new_cat_form");
+
+newCatForm.addEventListener('submit', async function(event){
+  event.preventDefault();
+
+  const formData = new FormData(newCatForm);
+  const formDataJSON = JSON.stringify(Object.fromEntries(formData));
+  let response = await fetch('newcat',
+    {
+      method: "POST",
+      body: formDataJSON,
+      headers: {
+        "Content-Type": "application/json"
+      },
+    }
+  );
+    if(response.ok){
+      console.log("response OK to POST request");
+    }
+
+})

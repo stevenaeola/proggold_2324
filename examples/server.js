@@ -12,6 +12,7 @@ const cats = [
     "colour": "white"}
 ]
 app.use(express.static('client'));
+app.use(express.json());
 
 
 app.get('/cats', function(req, resp){
@@ -47,6 +48,17 @@ app.get('/cat/:name', function(req, resp){
         resp.send("Your cat is invisible");
     }
   })
+
+  app.post('/newcat', function(req, resp){
+    const colour = req.body.colour;
+    const breed = req.body.breed;
+    const name = req.body.name;
+    const age = req.body.age;
+    const newCat = {name, breed, colour, age};
+    cats.push(newCat);
+
+    resp.send("Tried to add a cat colour " + colour);
+  });
 
 app.listen(8090)
 console.log('Server running at http://127.0.0.1:8090/');
