@@ -141,21 +141,7 @@ Foundation</li>
 <section class="slide level2">
 
 <h4 id="message-sequence-chart">Message sequence chart</h4>
-<pre class="mermaid"><code>sequenceDiagram
-    participant Client
-    participant Server
-    Client -&gt;&gt; Server: Static page request
-    Server -&gt;&gt; Client: HTML
-    loop from HTML content
-        Client -&gt;&gt; Server: file request
-        Server -&gt;&gt; Client: CSS, client JS, images
-    end
-    Client -&gt;&gt; Client: render page
-    loop each user action
-        Client -&gt;&gt; Server: Dynamic content request (AJAX)
-        Server -&gt;&gt; Client: JSON
-        Client -&gt;&gt; Client: Render JSON content as HTML within DOM
-    end</code></pre>
+<p><a href="./msc.png">!sequence diagram</a></p>
 </section>
 <section class="slide level2">
 

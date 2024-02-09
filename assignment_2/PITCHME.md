@@ -78,23 +78,7 @@
 
 #### Message sequence chart
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Server
-    Client ->> Server: Static page request
-    Server ->> Client: HTML
-    loop from HTML content
-        Client ->> Server: file request
-        Server ->> Client: CSS, client JS, images
-    end
-    Client ->> Client: render page
-    loop each user action
-        Client ->> Server: Dynamic content request (AJAX)
-        Server ->> Client: JSON
-        Client ->> Client: Render JSON content as HTML within DOM
-    end
-```
+[!sequence diagram](./msc.png)
 
 ---
 
