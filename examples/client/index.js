@@ -6,9 +6,9 @@ button.addEventListener('click', async function(event){
     let response = await fetch('http://127.0.0.1:8090/cats');
     let cats = await response.json();
     let table = "<table>"
-    table += "<tr><th>name</th><th>breed</th></tr>"
+    table += "<tr><th>name</th><th>breed</th><th>colour</tr>"
     for(let cat of cats){
-      table += `<tr> <td>${cat.name}</td> <td>${cat.breed}</td> </tr>`
+      table += `<tr> <td>${cat.name}</td> <td>${cat.breed}</td> <td>${cat.colour}</td></tr>`
     }
     table += "</table>"
     document.getElementById('all_cats_results').innerHTML = table;

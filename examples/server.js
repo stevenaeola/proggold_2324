@@ -1,6 +1,11 @@
 const express = require('express')
-const app = express()
+const fs = require('fs');
+const cats = require("./file.json");
 
+
+
+const app = express()
+/*
 const cats = [
     {"breed": "tortoiseshell",
     "age": 52,
@@ -11,12 +16,14 @@ const cats = [
     "name" : "Napoleon",
     "colour": "white"}
 ]
+*/
+
 app.use(express.static('client'));
 app.use(express.json());
 
 
 app.get('/cats', function(req, resp){
-    resp.send(cats);
+    resp.json(cats);
   })
 
   
@@ -56,6 +63,7 @@ app.get('/cat/:name', function(req, resp){
     const age = req.body.age;
     const newCat = {name, breed, colour, age};
     cats.push(newCat);
+    fs.writeFileSync('./file.json', JSON.stringify(cats));
 
     resp.send("Tried to add a cat colour " + colour);
   });
