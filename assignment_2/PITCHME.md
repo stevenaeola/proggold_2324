@@ -78,7 +78,7 @@
 
 #### Message sequence chart
 
-[!sequence diagram](./msc.png)
+![sequence diagram](./msc.png)
 
 ---
 

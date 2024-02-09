@@ -69,7 +69,7 @@
 
 #### Message sequence chart
 
-[!sequence diagram](./msc.png)
+![sequence diagram](./msc.png)
 
 
 ### Server provides JSON through a REST API
