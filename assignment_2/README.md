@@ -67,9 +67,9 @@
 - Recommend using front-end framework such as Bootstrap, Foundation
 
 
-#### Message sequence chart
+### Message sequence chart
 
-![sequence diagram](./msc.png)
+<img alt="sequence diagram" src="./msc.png" width="50%">
 
 
 ### Server provides JSON through a REST API
