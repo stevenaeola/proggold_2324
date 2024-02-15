@@ -1,4 +1,4 @@
-## DRAFT COMP1111 Programming (Gold) Summative Assessment 2 DRAFT 
+## COMP1111 Programming (Gold) Summative Assessment 2 
 
 
 ## Term 2 Programming Exercise Outline
@@ -43,7 +43,6 @@
 - Use static HTML pages loading dynamic JSON content from server via AJAX
 - Server written in nodejs to provide JSON through REST API
 - Prepare a 2 minute video demonstrating your code
-- Do a code quality review of four other submissions
 
 
 ### Dynamic web site

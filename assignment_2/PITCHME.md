@@ -1,4 +1,4 @@
-## DRAFT COMP1111 Programming (Gold) Summative Assessment 2 DRAFT {data-background-color=#7E317B}
+## COMP1111 Programming (Gold) Summative Assessment 2 {data-background-color=#7E317B}
 
 ---
 
@@ -49,7 +49,6 @@
 - Use static HTML pages loading dynamic JSON content from server via AJAX
 - Server written in nodejs to provide JSON through REST API
 - Prepare a 2 minute video demonstrating your code
-- Do a code quality review of four other submissions
 
 ---
 
