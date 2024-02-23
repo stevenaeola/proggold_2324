@@ -1,22 +1,41 @@
 
-const button = document.getElementById("all_cats_button")
+const all_cats_button = document.getElementById("all_cats_button")
 
-button.addEventListener('click', async function(event){
+all_cats_button.addEventListener('click', async function(event){
   try{
     let response = await fetch('http://127.0.0.1:8090/cats');
     let cats = await response.json();
-    let table = "<table>"
-    table += "<tr><th>name</th><th>breed</th><th>colour</tr>"
-    for(let cat of cats){
-      table += `<tr> <td>${cat.name}</td> <td>${cat.breed}</td> <td>${cat.colour}</td></tr>`
+
+    document.getElementById('all_cats_results').innerHTML = displayCatsInTable(cats);
     }
-    table += "</table>"
+    catch(error) {
+      alert(error)
+    }
+});
+
+const cat_search_form = document.getElementById("cat_search_form")
+
+cat_search_form.addEventListener('submit', async function(event){
+  try{
+    let response = await fetch('http://127.0.0.1:8090/catsearch');
+    let cats = await response.json();
+
     document.getElementById('all_cats_results').innerHTML = table;
     }
     catch(error) {
       alert(error)
     }
 });
+
+function displayCatsInTable(cats){
+  let table = "<table>"
+  table += "<tr><th>name</th><th>breed</th><th>colour</tr>"
+  for(let cat of cats){
+    table += `<tr> <td>${cat.name}</td> <td>${cat.breed}</td> <td>${cat.colour}</td></tr>`
+  }
+  table += "</table>"
+  return table;
+}
 
 const newCatForm = document.getElementById("new_cat_form");
 
