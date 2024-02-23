@@ -16,12 +16,14 @@ all_cats_button.addEventListener('click', async function(event){
 const cat_search_form = document.getElementById("cat_search_form")
 
 cat_search_form.addEventListener('submit', async function(event){
-  alert("called cat search listener")
   event.preventDefault();
+  const formData = new FormData(cat_search_form);
+  const searchParams = new URLSearchParams(formData);
+
   try{
-    let response = await fetch('http://127.0.0.1:8090/catsearch');
+    let response = await fetch('http://127.0.0.1:8090/catsearch?' + searchParams.toString());
     let cats = await response.json();
-    document.getElementById('all_cats_results').innerHTML = displayCatsInTable(cats);
+    document.getElementById('cat_search_results').innerHTML = displayCatsInTable(cats);
     }
     catch(error) {
       alert(error)
