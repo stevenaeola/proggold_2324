@@ -16,11 +16,12 @@ all_cats_button.addEventListener('click', async function(event){
 const cat_search_form = document.getElementById("cat_search_form")
 
 cat_search_form.addEventListener('submit', async function(event){
+  alert("called cat search listener")
+  event.preventDefault();
   try{
     let response = await fetch('http://127.0.0.1:8090/catsearch');
     let cats = await response.json();
-
-    document.getElementById('all_cats_results').innerHTML = table;
+    document.getElementById('all_cats_results').innerHTML = displayCatsInTable(cats);
     }
     catch(error) {
       alert(error)
