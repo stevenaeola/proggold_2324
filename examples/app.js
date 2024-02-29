@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs');
-const cats = require('./file.json');
+let cats = require('./file.json');
 
 const app = express();
 /*
@@ -18,6 +18,11 @@ const cats = [
 
 app.use(express.static('client'));
 app.use(express.json());
+
+
+function updateCats(){
+    fs.writeFileSync('./file.json', JSON.stringify(cats));
+}
 
 app.get('/cats', function (req, resp) {
     resp.json(cats);
@@ -59,9 +64,15 @@ app.get('/cat/:name', function (req, resp) {
     const age = req.body.age;
     const newCat = { name, breed, colour, age };
     cats.push(newCat);
-    fs.writeFileSync('./file.json', JSON.stringify(cats));
-
+    updateCats();
     resp.send('Tried to add a cat colour ' + colour);
+  });
+
+  app.delete('/deletecat/:name', function(req, resp){
+    const catName = req.params.name;
+    cats = cats.filter((cat) => cat.name.toLocaleLowerCase() !== catName.toLowerCase());
+    updateCats();
+    resp.send('Cat is gone ' + catName);
   });
 
   module.exports = app;

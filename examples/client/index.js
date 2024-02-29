@@ -32,9 +32,9 @@ cat_search_form.addEventListener('submit', async function(event){
 
 function displayCatsInTable(cats){
   let table = "<table>"
-  table += "<tr><th>name</th><th>breed</th><th>colour</tr>"
+  table += "<tr><th>name</th><th>breed</th><th>colour</th></tr>"
   for(let cat of cats){
-    table += `<tr> <td>${cat.name}</td> <td>${cat.breed}</td> <td>${cat.colour}</td></tr>`
+    table += `<tr> <td>${cat.name}</td> <td>${cat.breed}</td> <td>${cat.colour}</td><td><button>Delete</button></tr>`
   }
   table += "</table>"
   return table;
